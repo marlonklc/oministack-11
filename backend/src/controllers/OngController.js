@@ -7,7 +7,7 @@ module.exports = {
     
         return res.json(ongs)
     },
-    async save(req, res) {
+    async insert(req, res) {
         const { name, email, whatsapp, city, uf } = req.body
 
         const id = crypto.randomBytes(4).toString('HEX')
