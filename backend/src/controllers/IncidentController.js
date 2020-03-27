@@ -1,10 +1,36 @@
 const connection = require('../database/connection')
-const crypto = require('crypto')
 
 module.exports = {
     async get(req, res) {
-        const incidents = await connection('incidents').select('*')
-        return res.json(incidents)
+        const ong_id = req.headers.authorization
+        if (ong_id) {
+            const incidentsByOng = await connection('incidents')
+                .where('ong_id', ong_id)
+                .select('*')
+            return res.json(incidentsByOng)
+        } else {
+            const { page = 1} = req.query
+            const incidents = await connection('incidents')
+                .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
+                .limit(5)
+                .offset((page - 1) * 5)
+                .select([
+                    'incidents.*', 
+                    'ongs.name', 
+                    'ongs.email',
+                    'ongs.whatsapp',
+                    'ongs.city', 
+                    'ongs.uf'
+                ])
+            
+            const [countIncidents] = await connection('incidents').count()
+
+            return res
+                .header('x-total-items', countIncidents['count(*)'])
+                .header('x-previous-page', page <= 1 ? 1 : page - 1)
+                .header('x-next-page', parseInt(page) + 1)
+                .json(incidents)
+        }
     },
     async insert(req, res) {
         const { title, description, value } = req.body
