@@ -7,3 +7,6 @@
    - react-native, expo
  - backend: 
    - node, express, knex, sqlite3, jest (test)
+
+### running apps
+- frontend: https://mkcbethehero.netlify.com/
