@@ -4,7 +4,7 @@ WORKDIR /home/app
 
 COPY package.json package-lock.json ./
 
-RUN npm install --silent --progress=false  && npm cache clean
+RUN npm install --silent --progress=false
 
 COPY . .
 
