@@ -1,12 +1,13 @@
 FROM node:13.12.0-alpine
 
-WORKDIR /usr/app
-COPY package.json ./
+WORKDIR /home/app
 
-RUN yarn
+COPY package.json package-lock.json ./
+
+RUN npm install --silent --progress=false  && npm cache clean
 
 COPY . .
 
 EXPOSE 3333
 
-CMD ["yarn", "start"]
+CMD ["npm", "start"]
