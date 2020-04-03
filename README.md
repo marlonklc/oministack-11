@@ -10,3 +10,4 @@
 
 ### running apps
 - frontend: https://mkcbethehero.netlify.com/
+- backend: http://alb-mkc-2131479068.us-east-1.elb.amazonaws.com/
