@@ -9,5 +9,5 @@
    - node, express, knex, sqlite3, jest (test)
 
 ### running apps
-- frontend: https://marlonklc.page
+- frontend: https://marlonklc.page (test) or https://mkcbethehero.netlify.com/
 - backend: http://api.marlonklc.page:3333
