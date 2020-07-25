@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: 'https://alb-mkc-2131479068.us-east-1.elb.amazonaws.com'
+    baseURL: 'https://mkcbethehero-api.herokuapp.com'
 })
 
 export default api
