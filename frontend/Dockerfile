@@ -13,7 +13,7 @@ RUN npm run build
 # Stage 2 - the production environment
 FROM nginx:alpine
 
-# #COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 COPY --from=react-build /home/app/build /usr/share/nginx/html
 

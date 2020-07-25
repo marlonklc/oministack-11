@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  api:
+    hostname: api-hostname
+    container_name: api-container
+    build: ./backend
+    ports:
+    - 3333:3333
+  app:
+    hostname: app-hostname
+    container_name: app-container
+    build: ./frontend
+    ports:
+    - 80:80
+    
