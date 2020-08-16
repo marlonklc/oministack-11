@@ -10,4 +10,4 @@
 
 ### running apps
 - frontend: https://marlonklc.page (test) or https://mkcbethehero.netlify.com/
-- backend: http://api.marlonklc.page:3333
+- backend: https://mkcbethehero-api.herokuapp.com/
